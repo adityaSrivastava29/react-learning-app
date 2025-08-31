@@ -17,7 +17,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   }, [location.pathname]);
 
   const navItems = [
-    { path: "/react-learning-app", label: "Home" },
+    { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/counter", label: "Counter" },
     { path: "/todos", label: "Todos" },
@@ -35,7 +35,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
         className={`${theme === "dark" ? "bg-gray-800" : "bg-blue-600"} p-4`}>
         <div className="container mx-auto flex items-center justify-between gap-3">
           <Link
-            to="/react-learning-app"
+            to="/"
             className="text-white text-xl font-bold">
             React Learning App
           </Link>

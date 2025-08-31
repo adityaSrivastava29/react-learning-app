@@ -19,10 +19,10 @@ import "./utils/i18n"; // Initialize i18n
 const AppWithLogger = withLogger(() => (
   <Provider store={store}>
     <ThemeProvider>
-      <Router>
+      <Router basename="/react-learning-app">
         <Layout>
           <Routes>
-            <Route path="/react-learning-app" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/counter" element={<CounterPage />} />
             <Route path="/todos/*" element={<TodoPage />}>
