@@ -20,13 +20,13 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Initialize theme from localStorage or default to 'light'
   const [theme, setThemeState] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem("react-learning-theme");
+    const savedTheme = localStorage.getItem("react-learning-app-theme");
     return (savedTheme as Theme) || "light";
   });
 
   // Save theme to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem("react-learning-theme", theme);
+    localStorage.setItem("react-learning-app-theme", theme);
     console.log(`🎨 [ThemeContext] Theme changed to: ${theme}`);
   }, [theme]);
 
