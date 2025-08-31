@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { store } from "./store";
@@ -32,6 +32,7 @@ const AppWithLogger = withLogger(() => (
             <Route path="/theme" element={<ThemePage />} />
             <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
       </Router>

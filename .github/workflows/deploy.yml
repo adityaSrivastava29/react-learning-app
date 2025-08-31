@@ -39,6 +39,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: SPA fallback (copy index.html to 404.html)
+        run: cp dist/index.html dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
