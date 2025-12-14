@@ -1,8 +1,27 @@
 import React from "react";
 import { useFetch } from "../hooks/useFetch";
 
+interface GitHubUser {
+  login: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;
+  name: string | null;
+  company: string | null;
+  blog: string;
+  location: string | null;
+  bio: string | null;
+  twitter_username: string | null;
+  public_repos: number;
+  public_gists: number;
+  followers: number;
+  following: number;
+  created_at: string;
+  updated_at: string;
+}
+
 // Fallback object — the JSON you provided with meaningful fields
-const fallbackData = {
+const fallbackData: GitHubUser = {
   login: "adityaSrivastava29",
   id: 59208761,
   avatar_url: "https://avatars.githubusercontent.com/u/59208761?v=4",
@@ -28,7 +47,7 @@ const GithubStats: React.FC = () => {
     error,
   } = useFetch("https://api.github.com/users/adityasrivastava29");
 
-  const data = fetched ?? fallbackData;
+  const data = (fetched as GitHubUser) ?? fallbackData;
 
   if (loading) return <div className="p-4">Loading...</div>;
   if (error)
