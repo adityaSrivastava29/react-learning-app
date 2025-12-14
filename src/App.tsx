@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { store } from "./store";
@@ -14,6 +19,7 @@ import ProfilePage from "./routes/ProfilePage";
 import SettingsPage from "./routes/SettingsPage";
 import withLogger from "./components/hoc/withLogger";
 import "./utils/i18n"; // Initialize i18n
+import GithubStats from "./routes/GithubStats";
 
 // HOC demonstration - wrap the entire app with logging
 const AppWithLogger = withLogger(() => (
@@ -32,6 +38,7 @@ const AppWithLogger = withLogger(() => (
             <Route path="/theme" element={<ThemePage />} />
             <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/github" element={<GithubStats />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>

@@ -31,3 +31,9 @@ export interface ApiResponse<T> {
   loading: boolean;
   error: string | null;
 }
+
+export interface UseFetchState<T> {
+  data: T | null;
+  loading: boolean;
+  error: Error | null;
+}

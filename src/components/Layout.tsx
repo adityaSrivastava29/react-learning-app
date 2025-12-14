@@ -24,6 +24,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     { path: "/theme", label: "Theme" },
     { path: "/profile/1", label: "Profile" },
     { path: "/settings", label: "Settings" },
+    { path: "/github", label: "GitHub" }
   ];
 
   return (
