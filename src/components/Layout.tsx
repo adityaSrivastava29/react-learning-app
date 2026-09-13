@@ -21,6 +21,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     { path: "/rtk-query", label: "RTK Query" },
     { path: "/tricky-questions", label: "Tricky Questions" },
     { path: "/optimization", label: "Optimization" },
+    { path: "/machine-coding", label: "Machine Coding" },
     { path: "/counter", label: "Counter" },
     { path: "/todos", label: "Todos" },
     { path: "/theme", label: "Theme" },

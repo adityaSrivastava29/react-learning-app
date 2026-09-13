@@ -23,6 +23,7 @@ import HooksPage from "./routes/HooksPage";
 import RtkQueryPage from "./routes/RtkQueryPage";
 import TrickyQuestionsPage from "./routes/TrickyQuestionsPage";
 import OptimizationPage from "./routes/OptimizationPage";
+import MachineCodingPage from "./routes/MachineCodingPage";
 import GithubStats from "./routes/GithubStats";
 
 // HOC demonstration - wrap the entire app with logging
@@ -37,6 +38,7 @@ const AppWithLogger = withLogger(() => (
             <Route path="/rtk-query" element={<RtkQueryPage />} />
             <Route path="/tricky-questions" element={<TrickyQuestionsPage />} />
             <Route path="/optimization" element={<OptimizationPage />} />
+            <Route path="/machine-coding" element={<MachineCodingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/counter" element={<CounterPage />} />
             <Route path="/todos/*" element={<TodoPage />}>

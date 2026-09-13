@@ -40,6 +40,14 @@ const HomePage: React.FC = () => {
       highlight: true,
     },
     {
+      title: "Machine Coding Suite",
+      description: "Folder-structured machine coding practice suite with 20 Easy & Medium interview challenges",
+      path: "/machine-coding",
+      icon: "💻",
+      concepts: ["10 Easy (20-30m)", "10 Medium (30-40m)", "Folder Isolated", "Live Sandbox"],
+      highlight: true,
+    },
+    {
       title: "Counter Module",
       description: "Learn basic hook patterns and state management",
       path: "/counter",

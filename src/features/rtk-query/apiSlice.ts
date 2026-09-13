@@ -16,11 +16,11 @@ export const postsApi = createApi({
   endpoints: (builder) => ({
     getPosts: builder.query<Post[], { limit?: number; search?: string } | void>({
       query: (params) => {
-        const limit = params?.limit || 6;
+        const limit = (params && typeof params === "object" && "limit" in params && params.limit) ? params.limit : 6;
         return `/posts?_limit=${limit}`;
       },
       transformResponse: (response: Post[], _meta, arg) => {
-        if (arg?.search) {
+        if (arg && typeof arg === "object" && "search" in arg && arg.search) {
           const searchLower = arg.search.toLowerCase();
           return response.filter(
             (post) =>
