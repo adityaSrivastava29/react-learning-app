@@ -1,256 +1,193 @@
-# 🚀 React Learning Playground
+# 🚀 React Learning & Interview Understanding App
 
-A comprehensive interactive learning application built with React 18, TypeScript, and Vite that demonstrates all major React concepts through hands-on examples.
+A state-of-the-art, interactive **React 18+, TypeScript, and Vite** learning playground and interview preparation suite. Designed as a **one-stop solution** for mastering core React concepts, hooks, **RTK Query**, **performance optimization**, **tricky interview traps**, and **machine coding interview challenges**.
 
-## 🎯 Features
+---
 
-### Core React Concepts Covered
+## 🌟 Key Featured Modules
 
-- **Hooks**: `useState`, `useEffect`, `useContext`, `useReducer`, `useMemo`, `useCallback`, `useRef`
-- **Context API**: Global state management and avoiding props drilling
-- **Lifecycle Management**: Class components vs functional components with hooks
-- **Higher-Order Components (HOC)**: Component enhancement patterns
-- **Routing**: React Router DOM v6 with nested routes and dynamic parameters
-- **Async Operations**: API calls with proper loading/error states
-- **Redux Toolkit**: Complex state management with async thunks
-- **Custom Hooks**: Reusable logic extraction
-- **Performance Optimization**: Memoization and re-render prevention
+### 1. 💻 React Machine Coding Suite (`/machine-coding`)
+A modular, folder-structured practice engine containing **20+ isolated frontend interview questions** categorized by difficulty and estimated completion time. Each challenge includes a **live interactive sandbox**, **requirements checklist with progress tracking**, and **folder path references**.
 
-### Interactive Learning Modules
+#### 🟢 Easy Challenges (20–30 min)
+- **Todo List**: `src/features/machine-coding/easy/todo-list` — CRUD tasks with status filtering.
+- **Counter**: `src/features/machine-coding/easy/counter` — Increment, decrement, reset, and step size modifiers.
+- **Accordion**: `src/features/machine-coding/easy/accordion` — Collapsible panels supporting single vs. multi-open modes.
+- **Tabs**: `src/features/machine-coding/easy/tabs` — Active tab selection with dynamic tab creation.
+- **Star Rating**: `src/features/machine-coding/easy/star-rating` — Hover preview, selection lock, and read-only mode.
+- **Modal Dialog**: `src/features/machine-coding/easy/modal` — Trigger open, Escape key listener, and backdrop click close.
+- **Pagination**: `src/features/machine-coding/easy/pagination` — Prev/Next page navigation and dynamic page size selectors.
+- **Image Carousel**: `src/features/machine-coding/easy/carousel` — Slider with dot indicators, hover pause, and auto-play playback.
+- **OTP Input**: `src/features/machine-coding/easy/otp-input` — Multi-box digit input, auto-focus progression, and backspace shift.
+- **Traffic Light**: `src/features/machine-coding/easy/traffic-light` — Automated sequence timing with pause and manual overrides.
+- **Chips Input**: `src/features/machine-coding/easy/chipsInput` — Add tag chips on Enter key, active toggle, and event bubbling prevention.
 
-1. **🔢 Counter Module** - `useState`, `useReducer`, `useCallback`, `useMemo`
-2. **📝 Todo Module** - `useEffect`, `useRef`, performance optimization, nested routes
-3. **🎨 Theme Switcher** - Context API, props drilling solutions
-4. **👤 Profile Viewer** - Async operations, dynamic routes, lifecycle methods
-5. **⚙️ Settings Panel** - Redux Toolkit, async thunks, global state
+#### 🟡 Medium Challenges (30–40 min)
+- **Searchable User List**: `src/features/machine-coding/medium/searchable-list` — Multi-attribute live user filtering.
+- **Debounced Search**: `src/features/machine-coding/medium/debounced-search` — Custom 500ms debounce hook with latency logs.
+- **Autocomplete**: `src/features/machine-coding/medium/autocomplete` — Debounced combobox with loading spinner and fallback empty state.
+- **Todo with LocalStorage**: `src/features/machine-coding/medium/todo-localstorage` — Durable state persistence across browser reloads.
+- **Shopping Cart**: `src/features/machine-coding/medium/shopping-cart` — E-commerce catalog, quantity adjustments, and total math.
+- **Multi-select Dropdown**: `src/features/machine-coding/medium/multiselect` — Search option filter, "Select All", and tag pills.
+- **Dynamic Form**: `src/features/machine-coding/medium/dynamic-form` — Dynamic form generation from JSON schema definitions.
+- **File Upload**: `src/features/machine-coding/medium/file-upload` — Drag-and-drop file attachment with animated upload progress.
+- **Toast Notifications**: `src/features/machine-coding/medium/toast-notification` — Imperative alert stack (`toast.success()`, `toast.error()`).
+- **Countdown Timer**: `src/features/machine-coding/medium/countdown-timer` — Hours/mins/secs countdown with play, pause, and alert ring.
 
-### Learning Features
+---
 
-- **📚 Learning Notes**: Detailed explanations for every concept
-- **🔍 Console Logging**: Educational logs showing what's happening
-- **💾 Data Persistence**: localStorage integration where applicable
-- **🎨 Theme Support**: Dark/light mode with Context API
-- **📱 Responsive Design**: Mobile-friendly interface
-- **🔄 Real-time Updates**: Interactive examples with immediate feedback
+### 2. ⚡ RTK Query Mastery (`/rtk-query`)
+Master Redux Toolkit Query (`@reduxjs/toolkit/query/react`) with live API interactions:
+- **Automatic Caching & Base Query**: Built on JSONPlaceholder.
+- **Tag Invalidation**: `Post` tag invalidation on adding/deleting posts.
+- **Polling & Prefetching**: Real-time state syncing with configurable refetch interval.
+- **Live Store Inspector**: Inspect active RTK Query subscriptions, status, and cached state payload.
+
+---
+
+### 3. 🎯 Tricky React Questions & Pitfalls (`/tricky-questions`)
+Deep-dive into common interview traps with live interactive sandboxes:
+- **Stale Closures in `useEffect` / `useState`**: Why stale variables occur inside timers and how `useRef` or functional state updates fix them.
+- **Automatic Batching (React 18/19)**: How React batches state updates across async timeouts and promises.
+- **Two-Way Binding in React**: Why React enforces one-way data flow and how to implement controlled inputs vs Angular/Vue.
+- **Child-to-Parent Data Flow**: Callback functions, lifting state up, and context events.
+- **Custom Hooks vs Utility Functions**: When to encapsulate stateful logic in custom hooks (`use...`) vs pure utilities.
+- **State Colocation**: Avoiding unnecessary parent re-renders by pushing state down.
+
+---
+
+### 4. 🚀 Performance Optimization Suite (`/optimization`)
+Interactive performance guide showcasing React memoization and rendering strategies:
+- **Memoization Matrix**: `React.memo`, `useMemo`, `useCallback`, and avoiding object reference traps.
+- **State Colocation**: Moving state closest to where it is consumed.
+- **Concurrent Rendering**: `useTransition` and `useDeferredValue` for non-blocking UI response during heavy filtering.
+- **Code Splitting & Lazy Loading**: `React.lazy` and `<Suspense>` boundaries.
+- **List Virtualization**: Rendering massive datasets efficiently using windowing.
+
+---
+
+### 5. ⚓ Hooks Lab (`/hooks`)
+Interactive playground covering standard React hooks with visual re-render counters:
+- `useState`, `useEffect`, `useContext`, `useReducer`, `useMemo`, `useCallback`, `useRef`.
+- **Custom Hook Creation Guide**: Step-by-step rules and patterns for writing custom hooks.
+
+---
+
+### 6. 🔍 Global Search & Unified Theme
+- **Global Header Search (`/`)**: Instant search bar indexing all pages, tricky questions, hooks, and machine coding problems.
+- **Unified Theme System**: 100% consistent Light and Dark mode toggle powered by `useTheme()`.
+
+---
 
 ## 🛠 Tech Stack
 
-- **React 18+** - Latest React with concurrent features
-- **TypeScript** - Type safety and better developer experience
-- **Vite** - Fast build tool and dev server
-- **React Router DOM v6** - Client-side routing
-- **Redux Toolkit** - State management
-- **Tailwind CSS** - Utility-first styling
-- **ESLint + Prettier** - Code quality and formatting
+- **Framework**: React 18+
+- **Language**: TypeScript & JavaScript (supports `.tsx` and `.jsx` components)
+- **Build Tool**: Vite 7+
+- **Routing**: React Router DOM v6
+- **State Management**: Redux Toolkit & RTK Query
+- **Styling**: Vanilla CSS & Tailwind CSS v4
+- **Localization**: i18next
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd React-Learning
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Start the development server:
-
-```bash
-npm run dev
-```
-
-4. Open your browser and navigate to `http://localhost:5173`
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run preview` - Preview production build
+---
 
 ## 📁 Project Structure
 
 ```
 src/
-├── components/          # Shared UI components
-│   ├── Layout.tsx      # Main app layout
-│   ├── LearningNote.tsx # Educational component
-│   ├── SearchBar.tsx   # Search functionality
-│   └── hoc/            # Higher-Order Components
-├── contexts/           # React Context providers
-│   └── ThemeContext.tsx
-├── features/           # Feature modules
-│   ├── counter/        # Counter demonstrations
-│   ├── todos/          # Todo app with nested routes
+├── components/                  # Shared UI & Layout components
+│   ├── Layout.tsx              # Main navigation & theme shell
+│   ├── LearningNote.tsx         # Educational callout cards
+│   ├── SearchBar.tsx           # Global search modal (/ shortcut)
+│   └── hoc/                    # Higher-Order Component examples
+├── contexts/                   # Global React Contexts
+│   └── ThemeContext.tsx        # Dark/Light theme provider
+├── features/                   # Application Feature Modules
+│   ├── machine-coding/         # Machine coding suite
+│   │   ├── easy/               # Easy challenges (TodoList, Counter, OTP, ChipsInput...)
+│   │   ├── medium/             # Medium challenges (Autocomplete, ShoppingCart, Toast...)
+│   │   └── challengesRegistry.ts # Central registry of all machine coding challenges
+│   ├── rtk-query/              # Redux Toolkit Query API slices
+│   ├── todos/                  # Nested route Todo module
+│   └── counter/                # Basic counter state demo
+├── hooks/                      # Custom React Hooks
+│   ├── useTheme.ts             # Theme access hook
+│   ├── useSearch.ts            # Global search index hook
 │   └── ...
-├── hooks/              # Custom reusable hooks
-│   ├── useTheme.ts
-│   ├── useSearch.ts
-│   └── useLocalStorage.ts
-├── routes/             # Page components
-├── store/              # Redux Toolkit setup
-├── types/              # TypeScript definitions
-├── App.tsx             # Main app component
-└── main.tsx            # App entry point
+├── routes/                     # Main Route Pages
+│   ├── HomePage.tsx
+│   ├── MachineCodingPage.tsx   # /machine-coding route
+│   ├── TrickyQuestionsPage.tsx # /tricky-questions route
+│   ├── OptimizationPage.tsx    # /optimization route
+│   ├── RtkQueryPage.tsx        # /rtk-query route
+│   └── HooksPage.tsx           # /hooks route
+├── App.tsx                     # Main routes registry
+└── main.tsx                    # Application entrypoint
 ```
-
-## 📚 Learning Path
-
-### Beginner
-
-1. Start with **Counter Module** to understand basic hooks
-2. Explore **Theme Switcher** to see Context API in action
-3. Try the **Todo Module** for effects and refs
-
-### Intermediate
-
-4. Dive into **Profile Viewer** for async operations
-5. Master **Settings Panel** with Redux Toolkit
-6. Examine HOC patterns throughout the app
-
-### Advanced
-
-- Study the source code for architecture patterns
-- Experiment with custom hooks
-- Explore performance optimization techniques
-
-## 🎓 Key Learning Outcomes
-
-After working through this app, you'll understand:
-
-- **State Management**: When to use useState vs useReducer vs Context vs Redux
-- **Performance**: How and when to use useMemo, useCallback, and React.memo
-- **Side Effects**: useEffect patterns for different lifecycle needs
-- **Component Patterns**: HOCs, custom hooks, and composition
-- **Routing**: Nested routes, dynamic parameters, and navigation
-- **Async Operations**: Loading states, error handling, and data fetching
-- **TypeScript**: Type safety in React applications
-- **Best Practices**: Code organization, naming conventions, and architecture
-
-## 🔍 Developer Tips
-
-1. **Open Browser DevTools** - Console logs explain what's happening
-2. **Install Redux DevTools** - Watch state changes in real-time
-3. **Try Different User IDs** - Navigate to `/profile/2`, `/profile/3`, etc.
-4. **Toggle Theme** - See Context API in action across all components
-5. **Check localStorage** - Some data persists between sessions
-
-## 📖 Educational Features
-
-### Console Logging
-
-Every interaction includes educational console logs:
-
-```javascript
-console.log("🔢 [Counter] Incrementing by 2");
-console.log("📝 [Todos] Filtering todos with filter: completed");
-console.log("🎨 [ThemeContext] Theme changed to: dark");
-```
-
-### Learning Notes
-
-Each module includes detailed explanations:
-
-- Why the concept is used
-- Common pitfalls to avoid
-- Real-world use cases
-- Practice exercises
-
-### Code Comments
-
-Inline comments explain implementation decisions:
-
-```typescript
-// useCallback prevents unnecessary re-renders of child components
-const handleIncrement = useCallback(() => {
-  dispatch({ type: "increment" });
-}, []);
-```
-# 📘 TypeScript Configuration Overview (`tsconfig.json`)
-
-This configuration is optimized for a **Vite-powered TypeScript project** using **ESNext modules**, **strict linting**, and **modern bundler resolution**. It’s ideal for setups where TypeScript is used for type-checking only (no emit), and the bundler handles transpilation.
 
 ---
 
-## 🔧 Compiler Options
+## ➕ How to Add Your Own Machine Coding Question
 
-| Option                        | Description |
-|------------------------------|-------------|
-| `tsBuildInfoFile`            | Stores incremental build metadata in a temporary folder for faster rebuilds. |
-| `target: ES2023`             | Enables latest JavaScript features (e.g., `Array.prototype.toSorted`, `Symbol.dispose`). |
-| `lib: ["ES2023"]`            | Includes ES2023 standard library definitions. |
-| `module: ESNext`             | Outputs native ES modules, ideal for modern bundlers like Vite. |
-| `skipLibCheck: true`         | Skips type checking of declaration files for faster builds. |
+The machine coding section is built for **instant folder-wise extension**. To add a new practice question:
 
----
-
-## 📦 Bundler Mode
-
-| Option                        | Description |
-|------------------------------|-------------|
-| `moduleResolution: bundler`  | Optimized for bundlers (ignores Node-specific resolution quirks). |
-| `allowImportingTsExtensions` | Allows importing `.ts`/`.tsx` files with extensions. |
-| `verbatimModuleSyntax`       | Preserves import/export syntax exactly as written. |
-| `moduleDetection: force`     | Treats all files as modules, even without `import`/`export`. |
-| `noEmit: true`               | Prevents TypeScript from generating output files. |
-
----
-
-## 🧼 Linting & Type Safety
-
-| Option                        | Description |
-|------------------------------|-------------|
-| `strict: true`               | Enables all strict type-checking options. |
-| `noUnusedLocals: true`       | Flags unused variables. |
-| `noUnusedParameters: true`   | Flags unused function parameters. |
-| `erasableSyntaxOnly: true`   | Restricts type erasure to syntax-only constructs (experimental). |
-| `noFallthroughCasesInSwitch` | Prevents accidental fallthrough in `switch` statements. |
-| `noUncheckedSideEffectImports` | Warns about unused imports with potential side effects. |
+1. **Create a folder & component** in `src/features/machine-coding/easy/` or `medium/`:
+   ```bash
+   src/features/machine-coding/easy/my-new-question/MyNewQuestionChallenge.tsx (or .jsx)
+   ```
+2. **Register the challenge** in `src/features/machine-coding/challengesRegistry.ts`:
+   ```typescript
+   {
+     id: 'my-new-question',
+     title: 'My New Question',
+     difficulty: 'Easy',
+     estimatedTime: '20–30 min',
+     description: 'Short explanation of what to build.',
+     folderPath: 'src/features/machine-coding/easy/my-new-question',
+     component: MyNewQuestionChallenge,
+     requirements: ['Requirement 1', 'Requirement 2'],
+     tags: ['custom', 'react']
+   }
+   ```
+3. **Done!** Your question automatically appears in the sidebar list, live interactive sandbox, search bar, and checklist viewer.
 
 ---
 
-## 📂 Included Files
+## ⚡ Quick Start
 
-```json
-"include": ["vite.config.ts"]
+```bash
+# 1. Clone repo
+git clone <repository-url>
+cd React-Learning/react-learning-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Start local development server
+npm run dev
+
+# 4. Build for production verification
+npm run build
 ```
 
+---
 
-# 🤝 Contributing
+## 🤝 Contributing
 
-This is a learning project, but contributions are welcome:
+Contributions are warmly welcome! Whether adding new machine coding questions, interview pitfalls, or educational notes, check out our **[CONTRIBUTING.md](CONTRIBUTING.md)** guide for step-by-step instructions.
 
-1. Fork the repository
-2. Create a feature branch
-3. Add educational value
-4. Include learning notes
-5. Submit a pull request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+---
 
 ## 🙏 Acknowledgments
 
-- React team for the amazing framework
-- Vite team for the fast build tool
-- Tailwind CSS for the utility-first approach
-- Redux Toolkit for simplified state management
+- **React Team** for building and maintaining the core framework.
+- **Vite Team** for the lightning-fast development server and build tools.
+- **Redux Toolkit Team** for state management & RTK Query.
+- **Tailwind CSS Team** for the responsive utility-first CSS engine.
 
 ---
 
-**Happy Learning! 🎉**
+## 📜 License
 
-Remember: The best way to learn React is by building. This app gives you a playground to experiment, break things, and understand how React works under the hood.
+This project is open-source under the [MIT License](LICENSE). Happy React coding! 🎉
+
