@@ -19,6 +19,10 @@ import ProfilePage from "./routes/ProfilePage";
 import SettingsPage from "./routes/SettingsPage";
 import withLogger from "./components/hoc/withLogger";
 import "./utils/i18n"; // Initialize i18n
+import HooksPage from "./routes/HooksPage";
+import RtkQueryPage from "./routes/RtkQueryPage";
+import TrickyQuestionsPage from "./routes/TrickyQuestionsPage";
+import OptimizationPage from "./routes/OptimizationPage";
 import GithubStats from "./routes/GithubStats";
 
 // HOC demonstration - wrap the entire app with logging
@@ -29,6 +33,10 @@ const AppWithLogger = withLogger(() => (
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/hooks" element={<HooksPage />} />
+            <Route path="/rtk-query" element={<RtkQueryPage />} />
+            <Route path="/tricky-questions" element={<TrickyQuestionsPage />} />
+            <Route path="/optimization" element={<OptimizationPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/counter" element={<CounterPage />} />
             <Route path="/todos/*" element={<TodoPage />}>

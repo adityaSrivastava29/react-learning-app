@@ -24,9 +24,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     return (savedTheme as Theme) || "light";
   });
 
-  // Save theme to localStorage whenever it changes
+  // Save theme to localStorage & update document element dark class whenever it changes
   useEffect(() => {
     localStorage.setItem("react-learning-app-theme", theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     console.log(`🎨 [ThemeContext] Theme changed to: ${theme}`);
   }, [theme]);
 

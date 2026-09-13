@@ -17,14 +17,16 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   }, [location.pathname]);
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
+    { path: "/hooks", label: "Hooks Lab" },
+    { path: "/rtk-query", label: "RTK Query" },
+    { path: "/tricky-questions", label: "Tricky Questions" },
+    { path: "/optimization", label: "Optimization" },
     { path: "/counter", label: "Counter" },
     { path: "/todos", label: "Todos" },
     { path: "/theme", label: "Theme" },
     { path: "/profile/1", label: "Profile" },
     { path: "/settings", label: "Settings" },
-    { path: "/github", label: "GitHub" }
+    { path: "/about", label: "About" },
   ];
 
   return (
