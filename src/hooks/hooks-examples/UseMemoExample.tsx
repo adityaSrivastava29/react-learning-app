@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import CodeBlock from "../CodeBlock";
+import { HookDeepNotes } from "../../components/HookDeepNotes";
+import { useMemoNotes } from "../hookNotesData";
 
 const UseMemoExample: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -37,14 +39,18 @@ const UseMemoExample: React.FC = () => {
   return (
     <div className="space-y-6 text-gray-900 dark:text-gray-100">
       <div>
-        <h2 className="text-2xl font-bold mb-2">useMemo Hook</h2>
-        <p className="text-gray-600 dark:text-gray-300">
-          <strong>useMemo</strong> returns a memoized value. It recalculates the value only when one of its dependencies has changed. This optimization helps to avoid expensive calculations on every render.
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">
+          useMemo Hook
+        </h2>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          <strong className="text-gray-900 dark:text-white">useMemo</strong> returns a memoized value. It recalculates the value only when one of its dependencies has changed. This optimization helps to avoid expensive calculations on every render.
         </p>
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-        <h3 className="font-semibold text-lg mb-2">Basic Syntax</h3>
+      <div className="bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">
+          Basic Syntax
+        </h3>
         <CodeBlock
           code={`import { useMemo } from 'react';
 
@@ -54,19 +60,21 @@ const memoizedValue = useMemo(() => {
         />
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3">
-        <h3 className="font-semibold text-lg">1. Expensive Calculation Caching</h3>
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          Notice how typing in the todo input (re-rendering the parent) does NOT re-trigger the 100 million loop calculation because <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">count</code> didn't change!
+      <div className="bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">
+          1. Expensive Calculation Caching
+        </h3>
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          Notice how typing in the todo input (re-rendering the parent) does NOT re-trigger the 100 million loop calculation because <code className="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-xs font-mono font-medium text-gray-800 dark:text-gray-200">count</code> didn't change!
         </p>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 pt-1">
           <button
             onClick={() => setCount((c) => c + 1)}
-            className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded font-medium text-xs">
+            className="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium text-xs sm:text-sm transition-colors shadow-xs">
             Increment Count ({count})
           </button>
-          <span className="font-mono text-xs font-semibold">
+          <span className="font-mono text-xs sm:text-sm font-semibold px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
             Memoized Result: {memoizedValue}
           </span>
         </div>
@@ -78,16 +86,18 @@ const memoizedValue = useMemo(() => {
         />
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3">
-        <h3 className="font-semibold text-lg">2. Filtering Collections</h3>
+      <div className="bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">
+          2. Filtering Collections
+        </h3>
 
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="flex flex-col sm:flex-row gap-2.5">
           <input
             type="text"
             placeholder="Search todos..."
             value={searchFilter}
             onChange={(e) => setSearchFilter(e.target.value)}
-            className="px-3 py-1.5 border rounded bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-xs flex-1"
+            className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-xs sm:text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <div className="flex gap-2">
             <input
@@ -95,17 +105,17 @@ const memoizedValue = useMemo(() => {
               placeholder="New todo"
               value={newTodo}
               onChange={(e) => setNewTodo(e.target.value)}
-              className="px-3 py-1.5 border rounded bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-xs flex-1"
+              className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-xs sm:text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
               onClick={addTodo}
-              className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded text-xs font-medium">
+              className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs sm:text-sm font-medium transition-colors shadow-xs">
               Add
             </button>
           </div>
         </div>
 
-        <ul className="list-disc pl-5 space-y-1 text-xs">
+        <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
           {filteredTodos.map((todo, idx) => (
             <li key={idx}>{todo}</li>
           ))}
@@ -117,6 +127,9 @@ const memoizedValue = useMemo(() => {
 }, [todos, searchFilter]);`}
         />
       </div>
+
+      {/* Deep-Dive Notes & Tricky Parts */}
+      <HookDeepNotes {...useMemoNotes} />
     </div>
   );
 };

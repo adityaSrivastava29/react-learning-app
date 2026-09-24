@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CodeBlock from "../CodeBlock";
+import { HookDeepNotes } from "../../components/HookDeepNotes";
+import { useEffectNotes } from "../hookNotesData";
 
 const UseEffectExample: React.FC = () => {
   // State for tracking window width
@@ -35,14 +37,18 @@ const UseEffectExample: React.FC = () => {
   return (
     <div className="space-y-6 text-gray-900 dark:text-gray-100">
       <div>
-        <h2 className="text-2xl font-bold mb-2">useEffect Hook</h2>
-        <p className="text-gray-600 dark:text-gray-300">
-          <strong>useEffect</strong> is a hook for managing side-effects such as data fetching, subscriptions, or manually changing the DOM in React components. It replaces component lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount.
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">
+          useEffect Hook
+        </h2>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          <strong className="text-gray-900 dark:text-white">useEffect</strong> is a hook for managing side-effects such as data fetching, subscriptions, or manually changing the DOM in React components. It replaces component lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount.
         </p>
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-        <h3 className="font-semibold text-lg mb-2">Basic Syntax</h3>
+      <div className="bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">
+          Basic Syntax
+        </h3>
         <CodeBlock
           code={`import { useEffect } from 'react'
 
@@ -55,9 +61,11 @@ useEffect(() => {
         />
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3">
-        <h3 className="font-semibold text-lg">1. Window Resize Example (Event Listener Cleanup)</h3>
-        <div className="p-3 bg-white dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-700 font-mono text-sm font-semibold">
+      <div className="bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">
+          1. Window Resize Example (Event Listener Cleanup)
+        </h3>
+        <div className="p-3 bg-white dark:bg-gray-900/90 rounded-lg border border-gray-200 dark:border-gray-700 font-mono text-sm font-semibold">
           Window width: <span className="text-blue-600 dark:text-blue-400">{windowWidth}px</span>
         </div>
         <CodeBlock
@@ -71,18 +79,20 @@ useEffect(() => {
         />
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3">
-        <h3 className="font-semibold text-lg">2. Debounced Input Delay Example</h3>
-        <div className="space-y-2">
+      <div className="bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">
+          2. Debounced Input Delay Example
+        </h3>
+        <div className="space-y-2.5">
           <input
             type="text"
-            className="w-full px-3 py-1.5 border rounded text-xs bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700"
+            className="w-full px-3 py-2 border rounded-lg text-xs sm:text-sm bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Type something..."
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <div className="p-3 bg-white dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-700 text-xs font-mono">
-            Delayed Output (1s): <strong>{delayedValue || "(waiting...)"}</strong>
+          <div className="p-3 bg-white dark:bg-gray-900/90 rounded-lg border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-mono">
+            Delayed Output (1s): <strong className="text-blue-600 dark:text-blue-400">{delayedValue || "(waiting...)"}</strong>
           </div>
         </div>
         <CodeBlock
@@ -95,6 +105,9 @@ useEffect(() => {
 }, [inputValue])`}
         />
       </div>
+
+      {/* Deep-Dive Notes & Tricky Parts */}
+      <HookDeepNotes {...useEffectNotes} />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import CodeBlock from "../CodeBlock";
-import { useTheme } from "../useTheme";
+import { HookDeepNotes } from "../../components/HookDeepNotes";
+import { useStateNotes } from "../hookNotesData";
 
 const UseStateExample: React.FC = () => {
-  const { theme } = useTheme();
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
   const [isVisible, setIsVisible] = useState(true);
@@ -29,22 +29,20 @@ const UseStateExample: React.FC = () => {
     }));
   };
 
-  const containerCardClass = `p-4 rounded-lg border space-y-3 ${
-    theme === "dark" ? "bg-gray-900 border-gray-700" : "bg-white border-gray-300"
-  }`;
+  const containerCardClass =
+    "bg-gray-50/70 dark:bg-gray-800/40 p-5 rounded-xl border border-gray-200/80 dark:border-gray-700/70 space-y-3";
 
-  const inputClass = `px-3 py-1.5 border rounded text-xs sm:text-sm ${
-    theme === "dark"
-      ? "bg-gray-800 border-gray-700 text-white placeholder-gray-500"
-      : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
-  }`;
+  const inputClass =
+    "px-3 py-2 border rounded-lg bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-xs sm:text-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 text-gray-900 dark:text-gray-100">
       <div>
-        <h2 className="text-2xl font-bold mb-2">useState Hook</h2>
-        <p className={`text-sm sm:text-base ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}>
-          <strong>useState</strong> is the most fundamental React hook that allows you to add state to functional components. It returns an array with two elements: the current state value and a function to update it.
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">
+          useState Hook
+        </h2>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          <strong className="text-gray-900 dark:text-white">useState</strong> is the most fundamental React hook that allows you to add state to functional components. It returns an array with two elements: the current state value and a function to update it.
         </p>
       </div>
 
@@ -124,15 +122,11 @@ const [items, setItems] = useState([])          // Array`}
           </button>
           <div>
             {isVisible ? (
-              <div className={`p-3 rounded text-xs font-medium border ${
-                theme === "dark" ? "bg-emerald-950/40 border-emerald-800 text-emerald-200" : "bg-emerald-50 border-emerald-200 text-emerald-900"
-              }`}>
+              <div className="p-3.5 rounded-lg text-xs sm:text-sm font-medium border bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200">
                 👋 This content is visible!
               </div>
             ) : (
-              <div className={`p-3 rounded text-xs font-medium border ${
-                theme === "dark" ? "bg-rose-950/40 border-rose-800 text-rose-200" : "bg-rose-50 border-rose-200 text-rose-900"
-              }`}>
+              <div className="p-3.5 rounded-lg text-xs sm:text-sm font-medium border bg-rose-50 dark:bg-rose-950/30 border-rose-200 dark:border-rose-800 text-rose-900 dark:text-rose-200">
                 🙈 Content is hidden
               </div>
             )}
@@ -148,8 +142,8 @@ const [items, setItems] = useState([])          // Array`}
       </div>
 
       <div className={containerCardClass}>
-        <h3 className="font-semibold text-lg">4. Object State Example</h3>
-        <div className="grid sm:grid-cols-3 gap-2">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">4. Object State Example</h3>
+        <div className="grid sm:grid-cols-3 gap-2.5">
           <input
             type="text"
             className={inputClass}
@@ -172,9 +166,7 @@ const [items, setItems] = useState([])          // Array`}
             onChange={(e) => updateUser("age", parseInt(e.target.value) || 0)}
           />
         </div>
-        <div className={`p-3 rounded border text-xs font-mono ${
-          theme === "dark" ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"
-        }`}>
+        <div className="p-3 rounded-lg border text-xs sm:text-sm font-mono bg-white dark:bg-gray-900/90 border-gray-200 dark:border-gray-700">
           User State: Name: {user.name || "Not set"} | Email: {user.email || "Not set"} | Age: {user.age || "Not set"}
         </div>
         <CodeBlock
@@ -190,8 +182,8 @@ const updateUser = (field, value) => {
       </div>
 
       <div className={containerCardClass}>
-        <h3 className="font-semibold text-lg">5. Array State Example</h3>
-        <div className="flex gap-2">
+        <h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">5. Array State Example</h3>
+        <div className="flex gap-2.5">
           <input
             type="text"
             className={`${inputClass} flex-1`}
@@ -199,19 +191,17 @@ const updateUser = (field, value) => {
             value={newItem}
             onChange={(e) => setNewItem(e.target.value)}
           />
-          <button className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-semibold rounded" onClick={addItem}>
+          <button className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium rounded-lg transition-colors shadow-xs" onClick={addItem}>
             Add Item
           </button>
         </div>
-        <ul className="space-y-1">
+        <ul className="space-y-1.5">
           {items.map((item, index) => (
-            <li key={index} className={`flex items-center justify-between p-2 rounded border text-xs ${
-              theme === "dark" ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"
-            }`}>
-              <span>{item}</span>
+            <li key={index} className="flex items-center justify-between p-2.5 rounded-lg border text-xs sm:text-sm bg-white dark:bg-gray-900/90 border-gray-200 dark:border-gray-700">
+              <span className="text-gray-900 dark:text-gray-100">{item}</span>
               <button
                 onClick={() => removeItem(index)}
-                className="text-[10px] px-2 py-0.5 bg-red-600 hover:bg-red-700 text-white rounded">
+                className="text-xs px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-600 dark:bg-rose-950/60 dark:hover:bg-rose-900/60 dark:text-rose-300 border border-rose-200 dark:border-rose-900/60 rounded-md font-medium transition-colors">
                 Remove
               </button>
             </li>
@@ -224,6 +214,9 @@ const addItem = (newItem) => setItems([...items, newItem])
 const removeItem = (index) => setItems(items.filter((_, i) => i !== index))`}
         />
       </div>
+
+      {/* Deep-Dive Notes & Tricky Parts */}
+      <HookDeepNotes {...useStateNotes} />
     </div>
   );
 };
