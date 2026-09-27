@@ -4,7 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "description": "A React learning application",
-  "keywords": ["react", "typescript", "vite"],
+  "keywords": [
+    "react",
+    "typescript",
+    "vite"
+  ],
   "author": "adityasrivastava29",
   "license": "MIT",
   "scripts": {
@@ -19,6 +23,7 @@
     "@tailwindcss/vite": "^4.1.12",
     "axios": "^1.11.0",
     "i18next": "^25.3.6",
+    "prismjs": "^1.30.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-i18next": "^15.6.1",
@@ -27,6 +32,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@types/prismjs": "^1.26.6",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",

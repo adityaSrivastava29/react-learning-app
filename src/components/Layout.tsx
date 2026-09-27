@@ -17,10 +17,12 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   }, [location.pathname]);
 
   const navItems = [
+    { path: "/rbac", label: "RBAC & Auth" },
     { path: "/hooks", label: "Hooks Lab" },
     { path: "/rtk-query", label: "RTK Query" },
     { path: "/tricky-questions", label: "Tricky Questions" },
     { path: "/optimization", label: "Optimization" },
+    { path: "/virtual-list", label: "Virtual Lists" },
     { path: "/machine-coding", label: "Machine Coding" },
     { path: "/counter", label: "Counter" },
     { path: "/todos", label: "Todos" },

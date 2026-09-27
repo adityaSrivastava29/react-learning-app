@@ -7,6 +7,11 @@ export interface SearchItem {
 }
 
 const searchableContent: SearchItem[] = [
+  { label: "Protected Routes & RBAC Architecture", path: "/rbac", category: "Security & RBAC" },
+  { label: "Role-Based Access Control (RBAC)", path: "/rbac", category: "Security & RBAC" },
+  { label: "Spring Security 401 vs 403 Handling", path: "/rbac", category: "Security & RBAC" },
+  { label: "Concurrency-Safe Mutex Refresh Queue", path: "/rbac", category: "Security & RBAC" },
+  { label: "HttpOnly Refresh Cookies in React", path: "/rbac", category: "Security & RBAC" },
   { label: "useState Hook", path: "/hooks", category: "Hooks Lab" },
   { label: "useEffect Hook", path: "/hooks", category: "Hooks Lab" },
   { label: "useCallback Hook", path: "/hooks", category: "Hooks Lab" },
@@ -24,7 +29,9 @@ const searchableContent: SearchItem[] = [
   { label: "State Colocation & Pushing State Down", path: "/optimization", category: "Optimization" },
   { label: "Concurrent Rendering (useTransition)", path: "/optimization", category: "Optimization" },
   { label: "Code Splitting & Lazy Loading", path: "/optimization", category: "Optimization" },
-  { label: "List Virtualization & Windowing", path: "/optimization", category: "Optimization" },
+  { label: "List Virtualization (Windowing Demo)", path: "/virtual-list", category: "Virtual & Paginated List" },
+  { label: "Paginated List (Client & Server Async)", path: "/virtual-list", category: "Virtual & Paginated List" },
+  { label: "Offset vs Cursor-Based Pagination", path: "/virtual-list", category: "Virtual & Paginated List" },
   { label: "Tricky Question: Stale Closure in useEffect", path: "/tricky-questions", category: "Interview Q&A" },
   { label: "Tricky Question: Automatic Batching in React 18/19", path: "/tricky-questions", category: "Interview Q&A" },
   { label: "Tricky Question: Why React Has No Two-Way Binding", path: "/tricky-questions", category: "Interview Q&A" },

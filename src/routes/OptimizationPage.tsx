@@ -1,4 +1,5 @@
 import React, { useState, useTransition, useDeferredValue, useEffect } from "react";
+import { Link } from "react-router-dom";
 import CodeBlock from "../hooks/CodeBlock";
 import { LearningNote } from "../components/LearningNote";
 import { useTheme } from "../hooks/useTheme";
@@ -408,6 +409,15 @@ function Dashboard() {
           <p>
             Instead of mounting 10,000 DOM nodes, a scroll container calculates scroll position and mounts only DOM nodes that fit the height of the container. As you scroll, nodes are recycled instantly.
           </p>
+        </div>
+
+        <div className="pt-2">
+          <Link
+            to="/virtual-list"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-purple-500/20 transition-all">
+            <span>🚀</span>
+            <span>Open Dedicated Virtual List & Paginated List Playground →</span>
+          </Link>
         </div>
       </div>
 

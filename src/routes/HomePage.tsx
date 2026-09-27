@@ -8,6 +8,14 @@ const HomePage: React.FC = () => {
 
   const features = [
     {
+      title: "Protected Routes & RBAC",
+      description: "Enterprise authentication, permission-aware UI, HttpOnly cookies, and mutex refresh queue",
+      path: "/rbac",
+      icon: "🛡️",
+      concepts: ["ProtectedRoute", "401 vs 403", "HttpOnly Cookies", "Spring Security", "Mutex Queue"],
+      highlight: true,
+    },
+    {
       title: "Hooks Lab Showcase",
       description: "Interactive lab for useState, useEffect, useCallback, useMemo, useRef, useReducer",
       path: "/hooks",
@@ -37,6 +45,14 @@ const HomePage: React.FC = () => {
       path: "/optimization",
       icon: "🚀",
       concepts: ["Memoization Matrix", "State Colocation", "useTransition", "Virtualization"],
+      highlight: true,
+    },
+    {
+      title: "Virtual & Paginated Lists",
+      description: "Windowing 100k items at 60 FPS, Client vs Server Pagination with skeletons, & Cursor drift sandbox",
+      path: "/virtual-list",
+      icon: "🪟",
+      concepts: ["100k Windowing", "Phantom Spacers", "Server Skeletons", "Cursor vs Offset", "DOM Recycling"],
       highlight: true,
     },
     {

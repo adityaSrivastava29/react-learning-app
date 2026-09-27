@@ -12,3 +12,70 @@ body {
   line-height: 1.5;
   font-weight: 400;
 }
+
+/* ========================================================
+   PrismJS Syntax Highlighting Theme (VS Code / One Dark)
+   ======================================================== */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #94a3b8 !important; /* slate-400 */
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+
+.token.annotation,
+.token.decorator {
+  color: #fbbf24 !important; /* amber-400 */
+  font-weight: 600;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #fb7185 !important; /* rose-400 */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #34d399 !important; /* emerald-400 */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #38bdf8 !important; /* sky-400 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #c084fc !important; /* purple-400 */
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: #60a5fa !important; /* blue-400 */
+  font-weight: 500;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #fb923c !important; /* orange-400 */
+}
