@@ -42,7 +42,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Top Flagship Direct Links for Desktop
+  // Top Flagship Direct Links for Desktop (Bold, Highlighted, Zero-Wrap)
   const primaryLinks = [
     { path: "/virtual-list", label: "Virtual Lists", icon: "🪟", badge: "HOT" },
     { path: "/machine-coding", label: "Machine Coding", icon: "💻", badge: "20+" },
@@ -53,14 +53,14 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   // Grouped Modules for Dropdowns & Mobile
   const navGroups: NavGroup[] = [
     {
-      label: "Architecture & Data",
+      label: "Advanced Labs",
       items: [
         {
           path: "/virtual-list",
           label: "Virtual & Paginated Lists",
-          description: "Windowing 100k items at 60 FPS & cursor pagination",
+          description: "100k items at 60 FPS & cursor pagination",
           icon: "🪟",
-          badge: "New",
+          badge: "HOT",
         },
         {
           path: "/optimization",
@@ -80,11 +80,6 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
           description: "Role-based auth, HttpOnly cookies & mutex queue",
           icon: "🛡️",
         },
-      ],
-    },
-    {
-      label: "Practice & Interview",
-      items: [
         {
           path: "/machine-coding",
           label: "Machine Coding Suite",
@@ -107,7 +102,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
       ],
     },
     {
-      label: "Basics & Showcase",
+      label: "Apps & Basics",
       items: [
         {
           path: "/todos",
@@ -169,35 +164,40 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
       className={`min-h-screen transition-colors duration-200 ${
         theme === "dark" ? "bg-slate-900 text-slate-100" : "bg-slate-50 text-slate-900"
       }`}>
-      {/* HEADER / NAVBAR */}
+      {/* HEADER / NAVBAR: Soft Medium-Dark Slate (bg-slate-800) in Light Mode, Deep Slate (bg-slate-950) in Dark Mode */}
       <header
         ref={navRef}
-        className={`sticky top-0 z-40 w-full transition-colors duration-200 border-b backdrop-blur-md ${
+        className={`sticky top-0 z-40 w-full transition-colors duration-200 border-b backdrop-blur-md text-white shadow-md ${
           theme === "dark"
-            ? "bg-slate-900/85 border-slate-800/80 shadow-xs shadow-black/20"
-            : "bg-white/85 border-slate-200/80 shadow-xs shadow-slate-200/40"
+            ? "bg-slate-950/95 border-slate-800 shadow-black/30"
+            : "bg-slate-800/98 border-slate-700/80 shadow-slate-900/15"
         }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 gap-3">
+        
+        {/* TOP GLOW ACCENT STRIPE */}
+        <div className="h-[3px] w-full bg-gradient-to-r from-blue-500 via-indigo-500 via-purple-500 to-cyan-400" />
+
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-17 gap-3 sm:gap-6">
+            
             {/* BRAND LOGO */}
             <Link
               to="/"
-              className="flex items-center gap-2.5 font-extrabold tracking-tight group shrink-0">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 text-white flex items-center justify-center font-bold text-base shadow-md shadow-blue-500/25 group-hover:scale-105 group-hover:shadow-blue-500/40 transition-all">
+              className="flex items-center gap-3 font-extrabold tracking-tight group shrink-0 select-none">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-500 via-indigo-600 to-cyan-400 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-blue-500/30 group-hover:scale-105 group-hover:shadow-blue-500/50 transition-all">
                 ⚛️
               </div>
               <div className="flex flex-col">
-                <span className="text-base sm:text-lg font-black tracking-tight leading-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 dark:from-blue-400 dark:via-indigo-300 dark:to-cyan-400 bg-clip-text text-transparent">
+                <span className="text-base sm:text-xl font-black tracking-tight leading-tight bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent">
                   ReactLab
                 </span>
-                <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium tracking-normal -mt-0.5">
+                <span className="text-[10px] text-slate-300/80 font-semibold tracking-wider uppercase -mt-0.5">
                   Pro Learning App
                 </span>
               </div>
             </Link>
 
             {/* DESKTOP NAVIGATION (XL and up) */}
-            <nav className="hidden xl:flex items-center gap-1">
+            <nav className="hidden xl:flex items-center gap-1.5 flex-1 justify-center min-w-0">
               {/* Primary Direct Links */}
               {primaryLinks.map((item) => {
                 const active = isLinkActive(item.path);
@@ -205,21 +205,23 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold tracking-tight whitespace-nowrap shrink-0 transition-all flex items-center gap-2 ${
                       active
-                        ? "bg-blue-600 text-white shadow-xs shadow-blue-500/30"
-                        : theme === "dark"
-                        ? "text-slate-300 hover:text-white hover:bg-slate-800"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/35 ring-1 ring-blue-400/50"
+                        : "text-slate-200 hover:text-white hover:bg-slate-700/70"
                     }`}>
-                    <span>{item.icon}</span>
+                    <span className="text-sm">{item.icon}</span>
                     <span>{item.label}</span>
                     {item.badge && (
                       <span
-                        className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold uppercase tracking-wider ${
-                          active
-                            ? "bg-white/20 text-white"
-                            : "bg-blue-500/10 text-blue-500 dark:bg-blue-400/10 dark:text-blue-400 border border-blue-500/20"
+                        className={`text-[9px] font-extrabold px-1.5 py-0.2 rounded-full uppercase tracking-wider ${
+                          item.badge === "HOT"
+                            ? active
+                              ? "bg-white text-blue-700"
+                              : "bg-rose-500/25 text-rose-200 border border-rose-400/40"
+                            : active
+                            ? "bg-white text-indigo-700"
+                            : "bg-indigo-500/25 text-indigo-200 border border-indigo-400/40"
                         }`}>
                         {item.badge}
                       </span>
@@ -233,35 +235,42 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
                 const isOpen = openDropdown === group.label;
                 const active = isGroupActive(group);
                 return (
-                  <div key={group.label} className="relative">
+                  <div key={group.label} className="relative shrink-0">
                     <button
                       onClick={() => setOpenDropdown(isOpen ? null : group.label)}
                       onMouseEnter={() => setOpenDropdown(group.label)}
-                      className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1 ${
+                      className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold tracking-tight whitespace-nowrap transition-all flex items-center gap-1.5 ${
                         active && !isOpen
-                          ? "text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/40"
+                          ? "bg-blue-900/60 text-blue-300 border border-blue-700/60"
                           : isOpen
-                          ? "bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400"
-                          : theme === "dark"
-                          ? "text-slate-300 hover:text-white hover:bg-slate-800"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                          ? "bg-slate-700 text-blue-300 shadow-inner"
+                          : "text-slate-200 hover:text-white hover:bg-slate-700/70"
                       }`}>
                       <span>{group.label}</span>
-                      <span className={`text-[10px] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>
+                      <span className={`text-[10px] transition-transform duration-200 ${isOpen ? "rotate-180 text-blue-300" : "opacity-60"}`}>
                         ▼
                       </span>
                     </button>
 
-                    {/* Dropdown Menu */}
+                    {/* Dropdown Menu Container */}
                     {isOpen && (
                       <div
                         onMouseLeave={() => setOpenDropdown(null)}
-                        className={`absolute left-0 mt-2 w-80 rounded-2xl border shadow-2xl p-2 z-50 backdrop-blur-md animate-in fade-in zoom-in-95 duration-150 ${
+                        className={`absolute left-0 mt-2.5 rounded-2xl border p-2.5 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 shadow-2xl ${
                           theme === "dark"
-                            ? "bg-slate-900/95 border-slate-700/80 shadow-black/60 divide-slate-800"
-                            : "bg-white/95 border-slate-200 shadow-slate-300/50 divide-slate-100"
-                        }`}>
-                        <div className="space-y-1">
+                            ? "border-slate-700/80 bg-slate-900/98 shadow-black/80"
+                            : "border-slate-600/80 bg-slate-800/98 shadow-slate-900/40"
+                        } ${group.label === "Advanced Labs" ? "w-[420px]" : "w-[360px]"}`}>
+                        <div className="px-3 py-1.5 border-b border-slate-700/80 mb-1.5 flex items-center justify-between">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-300">
+                            {group.label} Catalog
+                          </span>
+                          <span className="text-[10px] text-blue-400 font-mono">
+                            {group.items.length} Modules
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-1 max-h-[380px] overflow-y-auto">
                           {group.items.map((item) => {
                             const itemActive = isLinkActive(item.path);
                             return (
@@ -271,24 +280,22 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
                                 onClick={() => setOpenDropdown(null)}
                                 className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
                                   itemActive
-                                    ? "bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400"
-                                    : theme === "dark"
-                                    ? "hover:bg-slate-800 text-slate-200"
-                                    : "hover:bg-slate-50 text-slate-800"
+                                    ? "bg-blue-600/25 text-blue-300 border border-blue-500/40"
+                                    : "hover:bg-slate-700/80 text-slate-200 hover:text-white"
                                 }`}>
                                 <span className="text-xl shrink-0 mt-0.5">{item.icon}</span>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center justify-between gap-1.5">
-                                    <span className="font-semibold text-xs sm:text-sm truncate">
+                                    <span className="font-bold text-xs sm:text-sm truncate">
                                       {item.label}
                                     </span>
                                     {item.badge && (
-                                      <span className="text-[10px] px-1.5 py-0.2 rounded-full font-bold bg-blue-500/10 text-blue-500 border border-blue-500/20 shrink-0">
+                                      <span className="text-[9px] px-1.5 py-0.2 rounded-full font-extrabold bg-blue-500/25 text-blue-300 border border-blue-400/40 shrink-0">
                                         {item.badge}
                                       </span>
                                     )}
                                   </div>
-                                  <p className="text-[11px] text-slate-400 dark:text-slate-500 line-clamp-1 mt-0.5">
+                                  <p className="text-[11px] text-slate-300/80 line-clamp-1 mt-0.5">
                                     {item.description}
                                   </p>
                                 </div>
@@ -303,35 +310,27 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
               })}
             </nav>
 
-            {/* RIGHT SIDE TOOLS: SEARCH, THEME TOGGLE, MOBILE BUTTONS */}
-            <div className="flex items-center gap-2">
+            {/* RIGHT SIDE TOOLS: SEARCH BAR, THEME TOGGLE, MOBILE BUTTONS */}
+            <div className="flex items-center gap-2.5 shrink-0">
               {/* Desktop Search Bar (Hidden below lg) */}
-              <div className="hidden lg:block w-48 xl:w-60">
+              <div className="hidden lg:block w-48 xl:w-64">
                 <SearchBar />
               </div>
 
               {/* Mobile Search Button (below lg) */}
               <button
                 onClick={() => setMobileSearchOpen(true)}
-                className={`lg:hidden p-2 rounded-xl border transition-colors ${
-                  theme === "dark"
-                    ? "border-slate-800 bg-slate-800/80 hover:bg-slate-700 text-slate-300"
-                    : "border-slate-200 bg-slate-100 hover:bg-slate-200 text-slate-700"
-                }`}
+                className="lg:hidden p-2 sm:p-2.5 rounded-xl border border-slate-600/80 bg-slate-700/80 hover:bg-slate-600 text-slate-200 transition-colors"
                 aria-label="Open search">
                 🔍
               </button>
 
-              {/* Theme Switcher Toggle */}
+              {/* Theme Switcher Toggle (Soft Medium-Dark Button) */}
               <button
                 onClick={toggleTheme}
                 title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-                className={`p-2 rounded-xl border transition-all flex items-center justify-center ${
-                  theme === "dark"
-                    ? "border-slate-800 bg-slate-800/80 hover:bg-slate-700 text-amber-400 hover:text-amber-300"
-                    : "border-slate-200 bg-slate-100 hover:bg-slate-200 text-indigo-600 hover:text-indigo-700"
-                }`}>
-                <span className="text-base leading-none">
+                className="p-2 sm:p-2.5 rounded-xl border border-slate-600/80 bg-slate-700/80 hover:bg-slate-600 text-amber-400 transition-all shadow-xs flex items-center justify-center">
+                <span className="text-base sm:text-lg leading-none">
                   {theme === "light" ? "🌙" : "☀️"}
                 </span>
               </button>
@@ -339,14 +338,10 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
               {/* Hamburger Button (below xl) */}
               <button
                 onClick={() => setMobileMenuOpen((prev) => !prev)}
-                className={`xl:hidden p-2 rounded-xl border transition-colors ${
-                  theme === "dark"
-                    ? "border-slate-800 bg-slate-800/80 hover:bg-slate-700 text-slate-300"
-                    : "border-slate-200 bg-slate-100 hover:bg-slate-200 text-slate-700"
-                }`}
+                className="xl:hidden p-2 sm:p-2.5 rounded-xl border border-slate-600/80 bg-slate-700/80 hover:bg-slate-600 text-white transition-colors"
                 aria-label="Toggle Navigation Menu"
                 aria-expanded={mobileMenuOpen}>
-                <span className="text-base leading-none font-bold">
+                <span className="text-lg leading-none font-bold">
                   {mobileMenuOpen ? "✕" : "☰"}
                 </span>
               </button>
@@ -356,12 +351,9 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
         {/* MOBILE SLIDE-DOWN DRAWER (Below XL) */}
         {mobileMenuOpen && (
-          <div
-            className={`xl:hidden border-t max-h-[82vh] overflow-y-auto px-4 py-4 space-y-5 transition-colors ${
-              theme === "dark"
-                ? "bg-slate-900 border-slate-800 text-white"
-                : "bg-white border-slate-200 text-slate-800"
-            }`}>
+          <div className={`xl:hidden border-t max-h-[82vh] overflow-y-auto px-4 py-5 space-y-5 text-white shadow-2xl ${
+            theme === "dark" ? "bg-slate-950 border-slate-800" : "bg-slate-800 border-slate-700"
+          }`}>
             {/* Mobile Search Input */}
             <div className="w-full">
               <SearchBar onClose={() => setMobileMenuOpen(false)} />
@@ -369,9 +361,10 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
             {/* Categorized Mobile Navigation */}
             {navGroups.map((group) => (
-              <div key={group.label} className="space-y-1.5">
-                <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2">
-                  {group.label}
+              <div key={group.label} className="space-y-2">
+                <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-slate-300 px-2 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                  <span>{group.label}</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                   {group.items.map((item) => {
@@ -381,25 +374,23 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
                         key={item.path}
                         to={item.path}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`flex items-center justify-between p-2.5 rounded-xl transition-colors ${
+                        className={`flex items-center justify-between p-3 rounded-xl transition-all ${
                           active
-                            ? "bg-blue-600 text-white font-semibold"
-                            : theme === "dark"
-                            ? "hover:bg-slate-800 text-slate-200"
-                            : "hover:bg-slate-100 text-slate-800"
+                            ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md shadow-blue-500/30"
+                            : "hover:bg-slate-700/80 bg-slate-700/40 text-slate-200 border border-slate-600/60"
                         }`}>
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="text-base shrink-0">{item.icon}</span>
-                          <span className="text-xs sm:text-sm font-medium truncate">
+                          <span className="text-lg shrink-0">{item.icon}</span>
+                          <span className="text-xs sm:text-sm font-bold truncate">
                             {item.label}
                           </span>
                         </div>
                         {item.badge && (
                           <span
-                            className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                            className={`text-[9px] font-extrabold px-1.5 py-0.2 rounded-full ${
                               active
-                                ? "bg-white/20 text-white"
-                                : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
+                                ? "bg-white text-blue-700"
+                                : "bg-blue-500/20 text-blue-300 border border-blue-400/40"
                             }`}>
                             {item.badge}
                           </span>
@@ -412,11 +403,11 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
             ))}
 
             {/* Quick Actions Footer in Mobile Drawer */}
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-              <span className="text-xs opacity-70">Theme</span>
+            <div className="pt-3 border-t border-slate-700 flex items-center justify-between">
+              <span className="text-xs font-medium text-slate-300">Current Theme:</span>
               <button
                 onClick={toggleTheme}
-                className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold flex items-center gap-2">
+                className="px-3.5 py-2 rounded-xl bg-slate-700 border border-slate-600 text-xs font-bold text-amber-400 flex items-center gap-2 hover:bg-slate-600 transition-colors">
                 <span>{theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}</span>
               </button>
             </div>
@@ -427,20 +418,20 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
       {/* MOBILE SEARCH OVERLAY DIALOG */}
       {mobileSearchOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
           onClick={() => setMobileSearchOpen(false)}
           aria-modal="true"
           role="dialog">
           <div
-            className={`w-full max-w-lg rounded-2xl border shadow-2xl p-4 transition-colors ${
-              theme === "dark" ? "bg-slate-900 border-slate-700 text-white" : "bg-white border-slate-200 text-slate-800"
+            className={`w-full max-w-lg rounded-2xl border shadow-2xl p-4 ${
+              theme === "dark" ? "border-slate-700 bg-slate-900 text-white" : "border-slate-600 bg-slate-800 text-white"
             }`}
             onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-              <span className="font-bold text-sm">Quick Search</span>
+            <div className="flex items-center justify-between pb-3 border-b border-slate-700">
+              <span className="font-bold text-sm text-slate-200">Quick Search</span>
               <button
                 onClick={() => setMobileSearchOpen(false)}
-                className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs opacity-75 hover:opacity-100">
+                className="w-7 h-7 rounded-full bg-slate-700 flex items-center justify-center text-xs text-slate-300 hover:text-white hover:bg-slate-600 transition-colors">
                 ✕
               </button>
             </div>
